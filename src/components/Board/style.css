@@ -1,0 +1,13 @@
+.ui.card:after,
+.ui.cards:after {
+	content: none;
+}
+
+.ui.cards {
+	align-items: center;
+	justify-content: space-between;
+}
+
+.ui.card {
+	margin-bottom: 1.5rem;
+}
