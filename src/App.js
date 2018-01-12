@@ -8,6 +8,7 @@ import "./css/header.min.css";
 // import "./css/icon.min.css";
 import "./css/image.min.css";
 import "./css/menu.min.css";
+import "./style.css";
 
 import Game from "./components/Game";
 import Nav from "./components/Nav";
@@ -57,20 +58,19 @@ class App extends React.Component {
 	}
 
 	render() {
-		const { highScore, roundCount, gameStarted } = this.state;
+		const { highScore, roundCount, gameStarted, gameLost } = this.state;
 		console.log(gameStarted);
 		const msg = this.renderOutcome();
+		const color = !gameStarted ? "" : gameLost ? "active red" : "active blue";
 
-		return (
-			<div className="">
-				<header className="ui header">
-					<Nav outcome={msg} highscore={highScore} score={roundCount} />
-				</header>
-				<main>
-					<Game onClick={this.outcome} />
-				</main>
-			</div>
-		);
+		return [
+			<header className="ui inverted vertical masthead center aligned">
+				<Nav outcome={msg} highscore={highScore} score={roundCount} color={color}/>
+			</header>,
+			<main>
+				<Game onClick={this.outcome} />
+			</main>
+		];
 	}
 }
 

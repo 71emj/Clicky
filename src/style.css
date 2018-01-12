@@ -1,0 +1,11 @@
+main {
+	margin-top: 7rem;
+}
+
+.masthead {
+	margin: -8px;
+}
+
+.masthead > .menu {
+	border-radius: 0px;
+}

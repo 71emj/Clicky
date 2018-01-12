@@ -1,8 +1,10 @@
 import React from "react";
 import Card from "../Card";
+import {shuffle} from "../../util/util.js";
 import "./style.css";
 
 class Board extends React.Component {
+
 	renderCard() {
 		console.log("ready to render");
 		const sequence = this.props.sequence; // use sequnce to shuffle position

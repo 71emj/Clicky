@@ -1,0 +1,24 @@
+* {
+	--webkit-transition: position 1s ease-out;
+	-moz-transition: position 1s ease-out;
+	-ms-transition: position 1s ease-out;
+	-o-transition: position 1s ease-out;
+	transition: position 1s ease-out;
+}
+
+.segment {
+	position: relative;
+	box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.3);
+	/*border-radius: 10px;*/
+	cursor: pointer;
+}
+
+.segment img,
+.segment .content,
+.segment {
+	border-radius: 10px;
+}
+
+.segment:hover {
+	top: -8px;
+}

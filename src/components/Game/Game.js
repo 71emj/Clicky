@@ -1,29 +1,9 @@
 import React from "react";
 import Board from "../Board";
+import { shuffle, swap, random } from "../../util/util.js";
 import "./style.css";
 import data from "../../game.json";
 
-
-const random = (factor) => {
-	return Math.floor(Math.random() * factor);
-};
-
-const swap = (array, i, r) => {
-	[array[i], array[r]] = [array[r], array[i]];
-	return array;
-};
-
-const shuffle = (array) => {
-	const arr = array.slice();
-	const n = array.length;
-	const l = n;
-
-	for (let i = 0; i < l; i++) {
-		const r = random(l);
-		swap(arr, i, r);
-	}
-	return arr;
-};
 
 class Game extends React.Component {
 	
@@ -34,37 +14,40 @@ class Game extends React.Component {
 				obj[data[i].id] = cur;
 				return obj;
 			}, {}),
-			sequence: data // data is imported from json which looks like [ {...}, {...}, {...}, {...}.. ];
+			history: [{
+				sequence: data
+			}],
+			stepNum: 0
 		};
 	}
 
 	reset = () => {
 		console.log("resetting");
-		const keys = Object.assign({}, this.state.keys);
-		const sequence = shuffle(this.state.sequence);
+		const {history, keys, stepNum} = this.state;
+		const sequence = shuffle(history[stepNum].sequence);
 
 		for (let elem in keys) {
 			keys[elem] = false;
 		}
 
-		console.log(keys);
-
-		this.setState({
-			sequence: sequence,
+		this.setState({ 
 			keys: keys,
+			history: history.concat([{
+				sequence: sequence
+			}]),
+			stepNum: stepNum + 1
 		});
 	}
 
 	handleClick = (event) => {
 		const {id} = event.currentTarget;
-
-		const sequence = shuffle(this.state.sequence.slice());
-		const keys = Object.assign({}, this.state.keys);
+		const {history, keys, stepNum} = this.state;
+		const sequence = shuffle(history[stepNum].sequence);
 
 		if (keys[id]) {
-			this.props.onClick(0); 
 			console.log(id);
-			console.log(keys);
+			
+			this.props.onClick(0); 
 			return this.reset();
 		}
 
@@ -72,17 +55,22 @@ class Game extends React.Component {
 		this.props.onClick(1);
 
 		this.setState({
-			sequence: sequence,
 			keys: keys,
+			history: history.concat([{
+				sequence: sequence
+			}]),
+			stepNum: stepNum + 1
 		});
 	}
 
 	render() {
+		const history = this.state.history.slice(0, this.state.stepNum + 1);
+		const cur = this.state.stepNum;
 
 		return (
 			<div className="ui container">
 				<Board 
-					sequence={this.state.sequence}
+					sequence={history[cur].sequence}
 					onClick={this.handleClick}
 				/>
 			</div>		
