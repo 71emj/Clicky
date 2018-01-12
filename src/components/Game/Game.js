@@ -40,6 +40,8 @@ class Game extends React.Component {
 	}
 
 	handleClick = (event) => {
+		event.stopPropagation();
+
 		const {id} = event.currentTarget;
 		const {history, keys, stepNum} = this.state;
 		const sequence = shuffle(history[stepNum].sequence);
