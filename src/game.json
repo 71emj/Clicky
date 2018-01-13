@@ -46,5 +46,17 @@
 	{
 		"id": "card12",
 		"image": "./assets/image/card12-white.jpg"
+	},
+	{
+		"id": "card13",
+		"image": "./assets/image/card13-white.jpg"
+	},
+	{
+		"id": "card14",
+		"image": "./assets/image/card14-white.jpg"
+	},
+	{
+		"id": "card15",
+		"image": "./assets/image/card15-white.jpg"
 	}
 ]

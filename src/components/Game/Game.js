@@ -10,7 +10,7 @@ class Game extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			keys: new Array(12).fill(false).reduce((obj, cur, i) => { // obj { key: false, key2: false....keyN: false }
+			keys: new Array(15).fill(false).reduce((obj, cur, i) => { // obj { key: false, key2: false....keyN: false }
 				obj[data[i].id] = cur;
 				return obj;
 			}, {}),
