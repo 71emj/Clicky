@@ -1,6 +1,6 @@
 import React from "react";
 
-// import "./css/reset.min.css";
+import "./css/reset.min.css";
 import "./css/card.min.css";
 import "./css/container.min.css";
 import "./css/grid.min.css";
@@ -64,10 +64,10 @@ class App extends React.Component {
 		const color = !gameStarted ? "" : gameLost ? "active red" : "active blue";
 
 		return [
-			<header className="ui inverted vertical masthead center aligned">
+			<header key="navbar" className="ui inverted vertical masthead center aligned">
 				<Nav outcome={msg} highscore={highScore} score={roundCount} color={color}/>
 			</header>,
-			<main>
+			<main key="body">
 				<Game onClick={this.outcome} />
 			</main>
 		];

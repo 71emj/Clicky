@@ -16,7 +16,7 @@
 .segment img,
 .segment .content,
 .segment {
-	border-radius: 10px;
+	border-radius: 4.5%;
 }
 
 .segment:hover {

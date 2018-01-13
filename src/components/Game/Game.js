@@ -1,6 +1,6 @@
 import React from "react";
 import Board from "../Board";
-import { shuffle, swap, random } from "../../util/util.js";
+import { shuffle } from "../../util/util.js";
 import "./style.css";
 import data from "../../game.json";
 

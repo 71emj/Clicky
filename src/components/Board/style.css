@@ -11,3 +11,17 @@
 .ui.segment {
 	margin-bottom: 1rem;
 }
+
+
+@media only screen and (max-width: 767px) {
+	.ui.stackable.grid>.column:not(.row) {
+		width: 48% !important;
+	}
+}
+
+
+@media only screen and (max-width: 560px) {
+	.ui.stackable.grid>.column:not(.row) {
+		width: 72% !important;
+	}
+}

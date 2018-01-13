@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "../Card";
-import {shuffle} from "../../util/util.js";
 import "./style.css";
 
 class Board extends React.Component {
