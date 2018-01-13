@@ -26,28 +26,13 @@ class Nav extends React.Component {
 				];
 	};
 
-	timeout() {
-		const toggle = this.state.toggle;
-
-		this.setState({
-			toggle: !toggle
-		});
-
-		setTimeout(() => {
-			this.setState({
-				toggle: !toggle
-			});
-		}, 1000);
-	}
-
 	componentWillMount() {
 		window.addEventListener("resize", () => {
-			this.renderPage();
+			this.forceUpdate();
 		});
 	}
 
 	render() {
-		// const page = this.renderPage(window.innerHTML);
 		return (
 			<div className="ui borderless inverted small menu">
 				{this.renderPage()}
@@ -62,5 +47,3 @@ class Nav extends React.Component {
 }
 
 export default Nav;
-
-// <h2 style={{ width: "100%", textAlign: "center" }}>React MTG Clicky</h2>
